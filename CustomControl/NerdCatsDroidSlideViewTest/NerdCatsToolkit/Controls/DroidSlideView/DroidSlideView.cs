@@ -12,12 +12,17 @@ using System.Windows.Shapes;
 
 namespace NerdCatsToolkit.Controls
 {
+     [TemplatePart(Name = HeaderBarName, Type = typeof(ListBox))]
     public class DroidSlideView: ItemsControl
     {
+
+        private const string HeaderBarName = "ImageBar";
+
+        private ListBox _headerListBox;
         public DroidSlideView()
         {
             DefaultStyleKey = typeof(DroidSlideView);
-            Debug.WriteLine(this.Items.Count.ToString());
+            
 
            
         }
@@ -25,9 +30,17 @@ namespace NerdCatsToolkit.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            Debug.WriteLine(this.Items.Count.ToString());
-            
+
+            _headerListBox = GetTemplateChild(HeaderBarName) as ListBox;
+            _headerListBox.CacheMode = new BitmapCache();
+
+            if(this.Items.Count>0)
+            {
+
+            }
         }
+
+        
 
        
 

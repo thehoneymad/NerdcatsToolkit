@@ -8,6 +8,7 @@ namespace NerdCatsToolkit.Controls
 {
     public class DroidSlideViewItem
     {
+
         public object Item { get; set; }
     }
 }
